@@ -7,10 +7,10 @@ import { ExpirationCompleteListener } from './events/listeners/expiration-comple
 import { PaymentCreatedListener } from './events/listeners/payment-created-listener';
 
 const start = async () => {
-  console.log('Starting...');
-  
+  console.log('Starting....');
+
   if (!process.env.JWT_KEY) {
-    throw new Error('JWT_KEY must be defined'); 
+    throw new Error('JWT_KEY must be defined');
   }
   if (!process.env.MONGO_URI) {
     throw new Error('MONGO_URI must be defined');
@@ -27,7 +27,7 @@ const start = async () => {
   if (!process.env.NATS_CLUSTER_ID) {
     throw new Error('NATS_CLUSTER_ID must be defined');
   }
-  
+
   try {
     await natsWrapper.connect(
       process.env.NATS_CLUSTER_ID,
@@ -54,9 +54,8 @@ const start = async () => {
   }
 
   app.listen(3000, () => {
-    console.log("Listening on port 3000!");
+    console.log('Listening on port 3000!');
   });
 };
 
 start();
-
